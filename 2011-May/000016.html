@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Parley-discuss] Patch to upgrade the included Module::Install
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/parley-discuss/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:parley-discuss%40lists.berlios.de?Subject=Re%3A%20%5BParley-discuss%5D%20Patch%20to%20upgrade%20the%20included%20Module%3A%3AInstall&In-Reply-To=%3CBANLkTiky1hf4722WeYZaMQ%2B%3DO744u2vqhg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000012.html">
+   <LINK REL="Next"  HREF="000013.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Parley-discuss] Patch to upgrade the included Module::Install</H1>
+    <B>Chisel</B> 
+    <A HREF="mailto:parley-discuss%40lists.berlios.de?Subject=Re%3A%20%5BParley-discuss%5D%20Patch%20to%20upgrade%20the%20included%20Module%3A%3AInstall&In-Reply-To=%3CBANLkTiky1hf4722WeYZaMQ%2B%3DO744u2vqhg%40mail.gmail.com%3E"
+       TITLE="[Parley-discuss] Patch to upgrade the included Module::Install">chisel at chizography.net
+       </A><BR>
+    <I>Tue May 10 01:17:30 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000012.html">[Parley-discuss] Patch to upgrade the included Module::Install
+</A></li>
+        <LI>Next message: <A HREF="000013.html">[Parley-discuss] Patch: use search_path instead of hard coded	schema name in half of the statements in parley.sql
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, May 5, 2011 at 12:41 PM, Stefan Seifert
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/parley-discuss">stefan.seifert at atikon.com</A>&gt;wrote:
+
+&gt;<i> Attached is a patch to simply upgrade the inc directory to a current
+</I>&gt;<i> Module::Install version, thereby enabling the auto_installing of
+</I>&gt;<i> dependencies.
+</I>&gt;<i>
+</I>
+One of my recent changes was to make my life easier, and I moved to
+Dist::Zilla for testing and uploading to the CPAN:
+
+<A HREF="https://github.com/chiselwright/parley/commit/d3e162c6d1a3ddef4f2be019eca7d376cef8be9f">https://github.com/chiselwright/parley/commit/d3e162c6d1a3ddef4f2be019eca7d376cef8be9f</A>
+
+Hopefully this doesn't make things too painful for other people looking at
+the code for this project - I've found that the benefits far outweigh the
+initial (and small) hurdle of installing Dist::Zilla locally as a developer.
+
+Because of this move there's no inc/ or Module::Install to worry about any
+more.
+
+Chiz
+-- 
+Chisel
+e: <A HREF="https://lists.berlios.de/mailman/listinfo/parley-discuss">chisel at chizography.net</A>
+w: <A HREF="http://chizography.net">http://chizography.net</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/parley-discuss/attachments/20110510/f18ed1ae/attachment.html">https://lists.berlios.de/pipermail/parley-discuss/attachments/20110510/f18ed1ae/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000012.html">[Parley-discuss] Patch to upgrade the included Module::Install
+</A></li>
+	<LI>Next message: <A HREF="000013.html">[Parley-discuss] Patch: use search_path instead of hard coded	schema name in half of the statements in parley.sql
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/parley-discuss">More information about the Parley-discuss
+mailing list</a><br>
+</body></html>

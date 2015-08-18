@@ -1,0 +1,352 @@
+From stefan.seifert at atikon.com  Thu May  5 13:41:31 2011
+From: stefan.seifert at atikon.com (Stefan Seifert)
+Date: Thu, 5 May 2011 13:41:31 +0200
+Subject: [Parley-discuss] Patch to upgrade the included Module::Install
+Message-ID: <201105051341.31318.stefan.seifert@atikon.com>
+
+Attached is a patch to simply upgrade the inc directory to a current 
+Module::Install version, thereby enabling the auto_installing of dependencies.
+
+Regards,
+-- 
+Stefan Seifert
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: parley-module-install.diff.gz
+Type: application/x-gzip
+Size: 17568 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/parley-discuss/attachments/20110505/18f12a09/attachment.bin>
+
+From stefan.seifert at atikon.com  Thu May  5 13:45:10 2011
+From: stefan.seifert at atikon.com (Stefan Seifert)
+Date: Thu, 5 May 2011 13:45:10 +0200
+Subject: [Parley-discuss] Patch: use search_path instead of hard coded
+	schema name in half of the statements in parley.sql
+Message-ID: <201105051345.10973.stefan.seifert@atikon.com>
+
+Schema name was only used when creating tables, not when inserting data, so a 
+simple psql parley -f db/parley.sql would not work.
+    
+Using search_path reduces usage of the schema name to only two lines making it 
+easier to change (or remove).
+
+Regards,
+-- 
+Stefan Seifert
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: parley-schema_name.diff
+Type: text/x-patch
+Size: 9229 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/parley-discuss/attachments/20110505/e311a911/attachment.bin>
+
+From stefan.seifert at atikon.com  Fri May  6 14:20:32 2011
+From: stefan.seifert at atikon.com (Stefan Seifert)
+Date: Fri, 6 May 2011 14:20:32 +0200
+Subject: [Parley-discuss] Patch: fix signup of new users
+Message-ID: <201105061420.32776.stefan.seifert@atikon.com>
+
+Recent Data::FormValidator needs a name for a constraint. Otherwise a code ref 
+is returned from validation->invalid in list context for unnamed constraint 
+methods leading to an error.
+
+Also _add_new_user did not get any form data since Data::FormValidator was 
+used directly by form_check instead of $c->form
+
+Fixed by attached patch.
+
+Regards,
+-- 
+Stefan Seifert
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: parley-signup.diff
+Type: text/x-patch
+Size: 3517 bytes
+Desc: not available
+URL: <https://lists.berlios.de/pipermail/parley-discuss/attachments/20110506/b656ceff/attachment.bin>
+
+From chisel at chizography.net  Tue May 10 01:13:30 2011
+From: chisel at chizography.net (Chisel)
+Date: Tue, 10 May 2011 00:13:30 +0100
+Subject: [Parley-discuss] Now available in git
+Message-ID: <BANLkTinnPp_J=UJP5xjNe72qypriJcDvtA@mail.gmail.com>
+
+I would have mentioned this earlier if I'd realised there were [still]
+active users out there.
+
+I recently moved parley to github:
+
+https://github.com/chiselwright/parley
+
+I'm starting to look through the recent patches submitted to the list but
+thought I should point you at a 'better' place to base patches from.
+
+Obviously, if you're a github user too the fork/patch process is a lot
+easier too.
+
+
+Chisel
+
+-- 
+Chisel
+e: chisel at chizography.net
+w: http://chizography.net
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/parley-discuss/attachments/20110510/257596ba/attachment.html>
+
+From chisel at chizography.net  Tue May 10 01:17:30 2011
+From: chisel at chizography.net (Chisel)
+Date: Tue, 10 May 2011 00:17:30 +0100
+Subject: [Parley-discuss] Patch to upgrade the included Module::Install
+In-Reply-To: <201105051341.31318.stefan.seifert@atikon.com>
+References: <201105051341.31318.stefan.seifert@atikon.com>
+Message-ID: <BANLkTiky1hf4722WeYZaMQ+=O744u2vqhg@mail.gmail.com>
+
+On Thu, May 5, 2011 at 12:41 PM, Stefan Seifert
+<stefan.seifert at atikon.com>wrote:
+
+> Attached is a patch to simply upgrade the inc directory to a current
+> Module::Install version, thereby enabling the auto_installing of
+> dependencies.
+>
+
+One of my recent changes was to make my life easier, and I moved to
+Dist::Zilla for testing and uploading to the CPAN:
+
+https://github.com/chiselwright/parley/commit/d3e162c6d1a3ddef4f2be019eca7d376cef8be9f
+
+Hopefully this doesn't make things too painful for other people looking at
+the code for this project - I've found that the benefits far outweigh the
+initial (and small) hurdle of installing Dist::Zilla locally as a developer.
+
+Because of this move there's no inc/ or Module::Install to worry about any
+more.
+
+Chiz
+-- 
+Chisel
+e: chisel at chizography.net
+w: http://chizography.net
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/parley-discuss/attachments/20110510/f18ed1ae/attachment.html>
+
+From chisel at chizography.net  Tue May 10 01:23:35 2011
+From: chisel at chizography.net (Chisel)
+Date: Tue, 10 May 2011 00:23:35 +0100
+Subject: [Parley-discuss] Patch: use search_path instead of hard coded
+ schema name in half of the statements in parley.sql
+In-Reply-To: <201105051345.10973.stefan.seifert@atikon.com>
+References: <201105051345.10973.stefan.seifert@atikon.com>
+Message-ID: <BANLkTi=XajVJ5xgM4=iHnvqQ32OEUzsZZQ@mail.gmail.com>
+
+On Thu, May 5, 2011 at 12:45 PM, Stefan Seifert
+<stefan.seifert at atikon.com>wrote:
+
+> Schema name was only used when creating tables, not when inserting data, so
+> a
+> simple psql parley -f db/parley.sql would not work.
+>
+> Using search_path reduces usage of the schema name to only two lines making
+> it
+> easier to change (or remove).
+>
+
+I'm looking at this patch now; the search_path change definitely makes
+sense.
+
+Was the removal of the change of owner for the parley schema/namespace
+intentional?
+
+i.e.
+
+-ALTER SCHEMA parley OWNER TO parley;
++SET search_path = parley;
+
+
+I've applied the patch as it stands and will worry about any consequences
+later:
+
+https://github.com/chiselwright/parley/commit/7c1bd38e6861d5a313cab1627a959774bcdaa505
+
+Chiz
+
+-- 
+Chisel
+e: chisel at chizography.net
+w: http://chizography.net
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/parley-discuss/attachments/20110510/ace3e87f/attachment.html>
+
+From chisel at chizography.net  Tue May 10 01:31:39 2011
+From: chisel at chizography.net (Chisel)
+Date: Tue, 10 May 2011 00:31:39 +0100
+Subject: [Parley-discuss] Patch: fix signup of new users
+In-Reply-To: <201105061420.32776.stefan.seifert@atikon.com>
+References: <201105061420.32776.stefan.seifert@atikon.com>
+Message-ID: <BANLkTimH_rZ4tG==5feGJyHQ2b3i0RwRcg@mail.gmail.com>
+
+On Fri, May 6, 2011 at 1:20 PM, Stefan Seifert <stefan.seifert at atikon.com>wrote:
+
+>
+> Fixed by attached patch.
+>
+
+Applied as:
+
+https://github.com/chiselwright/parley/commit/cdab20a02745c3dc1f2c34ff12b668654013b738
+
+
+Cheers,
+
+Chiz
+
+-- 
+Chisel
+e: chisel at chizography.net
+w: http://chizography.net
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/parley-discuss/attachments/20110510/bb346389/attachment.html>
+
+From stefan.seifert at atikon.com  Tue May 10 16:38:15 2011
+From: stefan.seifert at atikon.com (Stefan Seifert)
+Date: Tue, 10 May 2011 16:38:15 +0200
+Subject: [Parley-discuss] Patch: use search_path instead of hard coded
+	schema name in half of the statements in parley.sql
+In-Reply-To: <BANLkTi=XajVJ5xgM4=iHnvqQ32OEUzsZZQ@mail.gmail.com>
+References: <201105051345.10973.stefan.seifert@atikon.com>
+	<BANLkTi=XajVJ5xgM4=iHnvqQ32OEUzsZZQ@mail.gmail.com>
+Message-ID: <201105101638.15962.stefan.seifert@atikon.com>
+
+On Tuesday 10 May 2011 01:23:35 Chisel wrote:
+> On Thu, May 5, 2011 at 12:45 PM, Stefan Seifert
+> 
+> Was the removal of the change of owner for the parley schema/namespace
+> intentional?
+> 
+> i.e.
+> 
+> -ALTER SCHEMA parley OWNER TO parley;
+> +SET search_path = parley;
+
+Intentional yes, but I forgot to mention them. When following the installation 
+instructions, those owner changes are essentially redundant since objects 
+created have the current user as owner anyway. And if someone wants to use a 
+different user (probably his UNIX user) this redundandy makes installation 
+just harder.
+
+My goal is to integrate Parley with our Catalyst based CMS where every website 
+has it's own PostgreSQL schema. I will try to keep differences to plain 
+vanilla Parley as small as possible and maybe I'll come up with a way to just 
+support both variants with the same code. We'll see.
+
+Certainly great to see that this fine piece of software is still maintained :)
+-- 
+Stefan Seifert
+ 
+_____________________________ 
+ 
+Atikon EDV & Marketing GmbH
+Kreation | Marketing | Software | Medien
+ 
+A-4060 Leonding, Kornstra?e 4
+t: +43 (732) 611 266 - 37
+f: +43 (732) 611 266 - 20
+www.atikon.com
+ 
+uid: atu50491409
+fbg: Landesgericht Linz | fbn: 199780w
+ 
+Mitglied der Wirtschaftskammer O? | Es ist die GewO anwendbar.
+Es gelten die AGB der Atikon Marketing und Werbung GmbH (siehe 
+www.atikon.com/agb).
+ 
+Werde Fan auf Facebook (www.atikon.com/facebook)
+Folge uns auf Twitter (www.atikon.com/twitter)
+
+
+From stefan.seifert at atikon.com  Wed May 18 14:05:34 2011
+From: stefan.seifert at atikon.com (Stefan Seifert)
+Date: Wed, 18 May 2011 14:05:34 +0200
+Subject: [Parley-discuss] dispatch type Chained
+Message-ID: <201105181405.34324.stefan.seifert@atikon.com>
+
+Hi,
+
+I've created an experimental branch where I converted the Forum and Thread 
+controllers' actions to Chained:
+https://github.com/niner/parley/tree/chained
+
+This not only makes nicer URIs, but removes the need for a auto action in the 
+Root controller handling all kinds of parameters. This auto action currently 
+is a major road block on my way to integrate Parley into our CMS, since I 
+cannot have two Root controllers in one Catalyst app and I want to keep 
+supporting code as little and as centralized as possible.
+
+The Chained stuff works already. Only problem is that most URIs are written 
+statically directly into the templates and do not come from uri_for. I guess I 
+would have to change those to get this thing flying...
+
+Are you interested in this development?
+-- 
+Stefan Seifert
+ 
+_____________________________ 
+ 
+Atikon EDV & Marketing GmbH
+Kreation | Marketing | Software | Medien
+ 
+A-4060 Leonding, Kornstra?e 4
+t: +43 (732) 611 266 - 37
+f: +43 (732) 611 266 - 20
+www.atikon.com
+ 
+uid: atu50491409
+fbg: Landesgericht Linz | fbn: 199780w
+ 
+Mitglied der Wirtschaftskammer O? | Es ist die GewO anwendbar.
+Es gelten die AGB der Atikon Marketing und Werbung GmbH (siehe 
+www.atikon.com/agb).
+ 
+Werde Fan auf Facebook (www.atikon.com/facebook)
+Folge uns auf Twitter (www.atikon.com/twitter)
+
+
+From chisel at chizography.net  Thu May 19 00:39:11 2011
+From: chisel at chizography.net (Chisel)
+Date: Wed, 18 May 2011 23:39:11 +0100
+Subject: [Parley-discuss] dispatch type Chained
+In-Reply-To: <201105181405.34324.stefan.seifert@atikon.com>
+References: <201105181405.34324.stefan.seifert@atikon.com>
+Message-ID: <BANLkTi=dnWdzhkO8YKKs5xc_wR=aZ2tY_Q@mail.gmail.com>
+
+On Wed, May 18, 2011 at 1:05 PM, Stefan Seifert
+<stefan.seifert at atikon.com>wrote:
+
+>
+> The Chained stuff works already. Only problem is that most URIs are written
+> statically directly into the templates and do not come from uri_for. I
+> guess I
+> would have to change those to get this thing flying...
+>
+> Are you interested in this development?
+>
+
+Definitely interested - I've always intended to clean-up the chaining and
+I've also had in the back of my mind how bad/naughty I've been using static
+URLs in the templates.
+
+-- 
+Chisel
+e: chisel at chizography.net
+w: http://chizography.net
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: <https://lists.berlios.de/pipermail/parley-discuss/attachments/20110518/3067122a/attachment.html>
+

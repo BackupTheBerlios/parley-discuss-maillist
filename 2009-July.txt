@@ -1,0 +1,86 @@
+From chisel at herlpacker.co.uk  Wed Jul  8 14:24:16 2009
+From: chisel at herlpacker.co.uk (Chisel Wright)
+Date: Wed, 8 Jul 2009 13:24:16 +0100
+Subject: [Parley-discuss] Parley 1.2.1
+In-Reply-To: <d288fbcd0907072124k58763fe1o56c20f6ddd7e1750@mail.gmail.com>
+References: <d288fbcd0907072124k58763fe1o56c20f6ddd7e1750@mail.gmail.com>
+Message-ID: <20090708122416.GD26455@herlpacker.co.uk>
+
+On Wed, Jul 08, 2009 at 02:24:20PM +1000, Andrew Bramble wrote:
+> I have just installed Parley as an experiment in catalyst and catalyst
+> 'bolting' of disparate apps together. chisel++ , for a commute commit
+> project.
+> 
+> Do you still consider parley to be under active development and are
+> you accepting patches?
+
+I've taken a short break after getting Parley to 1.2.1 - somewhere I
+feel it's stable, and functional (for the most part).
+
+I still consider it to be under active development and I'm more than
+happy to receive patches - I'd love more people to be using and
+developing it.
+
+Chisel
+-- 
+Chisel Wright
+e: chisel at herlpacker.co.uk
+w: http://www.herlpacker.co.uk/
+
+  Maybe we 'should 'start putting an apo'strophe
+  before every 's we ever u'se
+
+
+From chisel at herlpacker.co.uk  Wed Jul  8 19:01:27 2009
+From: chisel at herlpacker.co.uk (Chisel)
+Date: Wed, 8 Jul 2009 18:01:27 +0100
+Subject: [Parley-discuss] Parley 1.2.1
+In-Reply-To: <d288fbcd0907080552y6418627etf0dd02f6095e782c@mail.gmail.com>
+References: <d288fbcd0907072124k58763fe1o56c20f6ddd7e1750@mail.gmail.com>
+	<20090708122416.GD26455@herlpacker.co.uk>
+	<d288fbcd0907080552y6418627etf0dd02f6095e782c@mail.gmail.com>
+Message-ID: <36DB431C-91A6-4BA4-92F8-63D00A9F4375@herlpacker.co.uk>
+
+On 8 Jul 2009, at 13:52, Andrew Bramble <bramble.andrew at gmail.com>  
+wrote:
+
+> right now I'm just playing w/ Parley and Catalyst again after a looong
+> absence. Having not even glanced at anything but the .sql stuff to get
+> up and running , the first thing I'd be looking for is the ability to
+> use Chained() actions to nest parley in larger catalyst apps.
+>
+> More as it happens.
+> parley++
+
+Aah yes; the bulk of Parley was written before Chained() was a sparkle  
+in Catalyst's eye.
+
+I've never needed to modify it but have no objections to it going that  
+route.
+
+I've often wondered how to make Parley part of a larger app/solution  
+so any suggestions or patches in that direction will be greatly  
+appreciated.
+
+1.2.x was released primarily for the namespace change to the schema to  
+help ensure that it doesn't pollute someone else's table-space if they  
+were ever brave enough to try it themselves.
+
+I'd also quite like to investigate OpenID authentication as a route  
+towards making it easier for people to get an app account.
+
+If you think that you might have suggestions and patches it would be  
+great if you could sign-up to the Parley Discuss list. It's so low  
+traffic that I forget it's there until someone emails me about Parley.
+
+https://lists.berlios.de/mailman/listinfo/parley-discuss
+
+It's useful to have archived messages to refer back to.
+
+
+Regards,
+
+Chiz
+
+
+

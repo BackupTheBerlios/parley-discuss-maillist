@@ -1,0 +1,89 @@
+From chisel at herlpacker.co.uk  Wed Dec 31 13:31:28 2008
+From: chisel at herlpacker.co.uk (Chisel Wright)
+Date: Wed, 31 Dec 2008 12:31:28 +0000
+Subject: [Parley-discuss] User Profile error
+Message-ID: <20081231123128.GP24984@herlpacker.co.uk>
+
+Visiting:
+
+  http://parley.herlpacker.co.uk/user/profile?user=1
+
+results in:
+
+  Couldn't render template "undef error -
+  DBIx::Class::ResultSet::count(): DBI Exception: DBD::Pg::st execute
+  failed: ERROR:  invalid input syntax for type inet: "" [for Statement
+  "SELECT COUNT( DISTINCT( "me"."creator_id" ) ) FROM "post" "me" WHERE
+  ( "ip_addr" = ? )" with ParamValues: 1=''] at
+  /usr/share/perl5/Devel/StackTrace.pm line 140
+  "
+-- 
+Chisel Wright
+e: chisel at herlpacker.co.uk
+w: http://www.herlpacker.co.uk/
+
+  "Lovingly wise hero"
+
+
+From chisel at herlpacker.co.uk  Wed Dec 31 13:51:01 2008
+From: chisel at herlpacker.co.uk (Chisel Wright)
+Date: Wed, 31 Dec 2008 12:51:01 +0000
+Subject: [Parley-discuss] User Profile error
+In-Reply-To: <20081231123128.GP24984@herlpacker.co.uk>
+References: <20081231123128.GP24984@herlpacker.co.uk>
+Message-ID: <20081231125101.GQ24984@herlpacker.co.uk>
+
+On Wed, Dec 31, 2008 at 12:31:28PM +0000, Chisel Wright wrote:
+>   Couldn't render template "undef error -
+>   DBIx::Class::ResultSet::count(): DBI Exception: DBD::Pg::st execute
+>   failed: ERROR:  invalid input syntax for type inet: "" [for Statement
+>   "SELECT COUNT( DISTINCT( "me"."creator_id" ) ) FROM "post" "me" WHERE
+>   ( "ip_addr" = ? )" with ParamValues: 1=''] at
+>   /usr/share/perl5/Devel/StackTrace.pm line 140
+>   "
+
+http://parley.herlpacker.co.uk/user/profile?user=5 is fine though ...
+must be something "different" about user #1 (missing IP information?
+unusual IP information?)
+
+-- 
+Chisel Wright
+e: chisel at herlpacker.co.uk
+w: http://www.herlpacker.co.uk/
+
+  This is not a plastic bag.
+
+
+From chisel at herlpacker.co.uk  Wed Dec 31 13:54:58 2008
+From: chisel at herlpacker.co.uk (Chisel Wright)
+Date: Wed, 31 Dec 2008 12:54:58 +0000
+Subject: [Parley-discuss] User Profile error
+In-Reply-To: <20081231125101.GQ24984@herlpacker.co.uk>
+References: <20081231123128.GP24984@herlpacker.co.uk>
+	<20081231125101.GQ24984@herlpacker.co.uk>
+Message-ID: <20081231125458.GR24984@herlpacker.co.uk>
+
+On Wed, Dec 31, 2008 at 12:51:01PM +0000, Chisel Wright wrote:
+> http://parley.herlpacker.co.uk/user/profile?user=5 is fine though ...
+> must be something "different" about user #1 (missing IP information?
+> unusual IP information?)
+
+parley=> select distinct ip_addr from post where creator_id = 1;
+    ip_addr
+----------------
+ 88.97.130.121
+ 91.203.96.61
+ 212.95.225.99
+ 212.95.239.156
+ [NULL]
+(5 rows)
+
+No other user has NULL values in this field.
+-- 
+Chisel Wright
+e: chisel at herlpacker.co.uk
+w: http://www.herlpacker.co.uk/
+
+  Screenie or it didn't happen.
+
+

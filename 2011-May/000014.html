@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Parley-discuss] Patch: fix signup of new users
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/parley-discuss/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:parley-discuss%40lists.berlios.de?Subject=Re%3A%20%5BParley-discuss%5D%20Patch%3A%20fix%20signup%20of%20new%20users&In-Reply-To=%3C201105061420.32776.stefan.seifert%40atikon.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000019.html">
+   <LINK REL="Next"  HREF="000018.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Parley-discuss] Patch: fix signup of new users</H1>
+    <B>Stefan Seifert</B> 
+    <A HREF="mailto:parley-discuss%40lists.berlios.de?Subject=Re%3A%20%5BParley-discuss%5D%20Patch%3A%20fix%20signup%20of%20new%20users&In-Reply-To=%3C201105061420.32776.stefan.seifert%40atikon.com%3E"
+       TITLE="[Parley-discuss] Patch: fix signup of new users">stefan.seifert at atikon.com
+       </A><BR>
+    <I>Fri May  6 14:20:32 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000019.html">[Parley-discuss] Patch: use search_path instead of hard coded	schema name in half of the statements in parley.sql
+</A></li>
+        <LI>Next message: <A HREF="000018.html">[Parley-discuss] Patch: fix signup of new users
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Recent Data::FormValidator needs a name for a constraint. Otherwise a code ref 
+is returned from validation-&gt;invalid in list context for unnamed constraint 
+methods leading to an error.
+
+Also _add_new_user did not get any form data since Data::FormValidator was 
+used directly by form_check instead of $c-&gt;form
+
+Fixed by attached patch.
+
+Regards,
+-- 
+Stefan Seifert
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: parley-signup.diff
+Type: text/x-patch
+Size: 3517 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/parley-discuss/attachments/20110506/b656ceff/attachment.bin">https://lists.berlios.de/pipermail/parley-discuss/attachments/20110506/b656ceff/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000019.html">[Parley-discuss] Patch: use search_path instead of hard coded	schema name in half of the statements in parley.sql
+</A></li>
+	<LI>Next message: <A HREF="000018.html">[Parley-discuss] Patch: fix signup of new users
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#14">[ date ]</a>
+              <a href="thread.html#14">[ thread ]</a>
+              <a href="subject.html#14">[ subject ]</a>
+              <a href="author.html#14">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/parley-discuss">More information about the Parley-discuss
+mailing list</a><br>
+</body></html>

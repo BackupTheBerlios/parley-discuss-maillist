@@ -1,0 +1,98 @@
+From inspirewithhope at gmail.com  Wed Oct  8 12:30:26 2008
+From: inspirewithhope at gmail.com (Kathleen)
+Date: Wed, 8 Oct 2008 11:30:26 +0100
+Subject: [Parley-discuss] Typo on help page
+Message-ID: <531656cd0810080330o346e55a7ka49d3522e6b1c7b6@mail.gmail.com>
+
+Hello, I've spotted a typo (woo, go me!)
+
+http://parley.herlpacker.co.uk/help
+
+Under Posting, #2 ? "formating"
+
+Kx
+
+
+From chisel at herlpacker.co.uk  Wed Oct  8 12:51:31 2008
+From: chisel at herlpacker.co.uk (Chisel Wright)
+Date: Wed, 8 Oct 2008 11:51:31 +0100
+Subject: [Parley-discuss] Typo on help page
+In-Reply-To: <531656cd0810080330o346e55a7ka49d3522e6b1c7b6@mail.gmail.com>
+References: <531656cd0810080330o346e55a7ka49d3522e6b1c7b6@mail.gmail.com>
+Message-ID: <20081008105131.GD26646@herlpacker.co.uk>
+
+On Wed, Oct 08, 2008 at 11:30:26AM +0100, Kathleen wrote:
+> Hello, I've spotted a typo (woo, go me!)
+> 
+> http://parley.herlpacker.co.uk/help
+> 
+> Under Posting, #2 ? "formating"
+> 
+> Kx
+
+Fixed. Thanks.
+
+http://svn.berlios.de/viewcvs/parley/trunk/root/base/help/i_default/contents?rev=950&view=diff&r1=950&r2=949&p1=trunk/root/base/help/i_default/contents&p2=/trunk/root/base/help/i_default/contents
+[ http://xrl.us/os7mm ]
+
+-- 
+Chisel Wright
+e: chisel at herlpacker.co.uk
+w: http://www.herlpacker.co.uk/
+
+  The following sentence is true.
+  The previous sentence is false.
+
+
+From inspirewithhope at gmail.com  Wed Oct  8 13:40:35 2008
+From: inspirewithhope at gmail.com (Kathleen)
+Date: Wed, 8 Oct 2008 12:40:35 +0100
+Subject: [Parley-discuss] Avatar upload fail
+Message-ID: <531656cd0810080440p78f4be70i41d5c64dec2e05b6@mail.gmail.com>
+
+I tried to upload an avatar at
+http://parley.herlpacker.co.uk/my/preferences/update - got "Failed to
+create destination directory. Unable to store upload." & no avatar.
+
+The image is a 120x120 pixel jpg.
+
+I couldn;'t see any guidelines on image sizes.
+
+Thanks,
+Kx
+
+
+From chisel at herlpacker.co.uk  Wed Oct  8 13:51:56 2008
+From: chisel at herlpacker.co.uk (Chisel Wright)
+Date: Wed, 8 Oct 2008 12:51:56 +0100
+Subject: [Parley-discuss] Avatar upload fail
+In-Reply-To: <531656cd0810080440p78f4be70i41d5c64dec2e05b6@mail.gmail.com>
+References: <531656cd0810080440p78f4be70i41d5c64dec2e05b6@mail.gmail.com>
+Message-ID: <20081008115156.GF26646@herlpacker.co.uk>
+
+On Wed, Oct 08, 2008 at 12:40:35PM +0100, Kathleen wrote:
+> I tried to upload an avatar at
+> http://parley.herlpacker.co.uk/my/preferences/update - got "Failed to
+> create destination directory. Unable to store upload." & no avatar.
+> 
+> The image is a 120x120 pixel jpg.
+> 
+> I couldn;'t see any guidelines on image sizes.
+
+Bugger - local file-permissions.
+
+I'll try to remember to check for that in the future.
+
+I'm thinking about ditching local uploads and just using Gravatar:
+
+ http://en.gravatar.com/
+
+-- 
+Chisel Wright
+e: chisel at herlpacker.co.uk
+w: http://www.herlpacker.co.uk/
+
+  I would love to change the world but
+  they won't give me the source code.
+
+

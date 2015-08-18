@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Parley-discuss] dispatch type Chained
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/parley-discuss/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:parley-discuss%40lists.berlios.de?Subject=Re%3A%20%5BParley-discuss%5D%20dispatch%20type%20Chained&In-Reply-To=%3C201105181405.34324.stefan.seifert%40atikon.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000015.html">
+   <LINK REL="Next"  HREF="000021.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Parley-discuss] dispatch type Chained</H1>
+    <B>Stefan Seifert</B> 
+    <A HREF="mailto:parley-discuss%40lists.berlios.de?Subject=Re%3A%20%5BParley-discuss%5D%20dispatch%20type%20Chained&In-Reply-To=%3C201105181405.34324.stefan.seifert%40atikon.com%3E"
+       TITLE="[Parley-discuss] dispatch type Chained">stefan.seifert at atikon.com
+       </A><BR>
+    <I>Wed May 18 14:05:34 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000015.html">[Parley-discuss] Now available in git
+</A></li>
+        <LI>Next message: <A HREF="000021.html">[Parley-discuss] dispatch type Chained
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I've created an experimental branch where I converted the Forum and Thread 
+controllers' actions to Chained:
+<A HREF="https://github.com/niner/parley/tree/chained">https://github.com/niner/parley/tree/chained</A>
+
+This not only makes nicer URIs, but removes the need for a auto action in the 
+Root controller handling all kinds of parameters. This auto action currently 
+is a major road block on my way to integrate Parley into our CMS, since I 
+cannot have two Root controllers in one Catalyst app and I want to keep 
+supporting code as little and as centralized as possible.
+
+The Chained stuff works already. Only problem is that most URIs are written 
+statically directly into the templates and do not come from uri_for. I guess I 
+would have to change those to get this thing flying...
+
+Are you interested in this development?
+-- 
+Stefan Seifert
+ 
+_____________________________ 
+ 
+Atikon EDV &amp; Marketing GmbH
+Kreation | Marketing | Software | Medien
+ 
+A-4060 Leonding, Kornstra&#223;e 4
+t: +43 (732) 611 266 - 37
+f: +43 (732) 611 266 - 20
+www.atikon.com
+ 
+uid: atu50491409
+fbg: Landesgericht Linz | fbn: 199780w
+ 
+Mitglied der Wirtschaftskammer O&#214; | Es ist die GewO anwendbar.
+Es gelten die AGB der Atikon Marketing und Werbung GmbH (siehe 
+www.atikon.com/agb).
+ 
+Werde Fan auf Facebook (www.atikon.com/facebook)
+Folge uns auf Twitter (www.atikon.com/twitter)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000015.html">[Parley-discuss] Now available in git
+</A></li>
+	<LI>Next message: <A HREF="000021.html">[Parley-discuss] dispatch type Chained
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#20">[ date ]</a>
+              <a href="thread.html#20">[ thread ]</a>
+              <a href="subject.html#20">[ subject ]</a>
+              <a href="author.html#20">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/parley-discuss">More information about the Parley-discuss
+mailing list</a><br>
+</body></html>

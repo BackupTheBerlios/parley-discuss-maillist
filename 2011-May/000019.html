@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [Parley-discuss] Patch: use search_path instead of hard coded	schema name in half of the statements in parley.sql
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/parley-discuss/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:parley-discuss%40lists.berlios.de?Subject=Re%3A%20%5BParley-discuss%5D%20Patch%3A%20use%20search_path%20instead%20of%20hard%20coded%0A%09schema%20name%20in%20half%20of%20the%20statements%20in%20parley.sql&In-Reply-To=%3C201105101638.15962.stefan.seifert%40atikon.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000017.html">
+   <LINK REL="Next"  HREF="000014.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[Parley-discuss] Patch: use search_path instead of hard coded	schema name in half of the statements in parley.sql</H1>
+    <B>Stefan Seifert</B> 
+    <A HREF="mailto:parley-discuss%40lists.berlios.de?Subject=Re%3A%20%5BParley-discuss%5D%20Patch%3A%20use%20search_path%20instead%20of%20hard%20coded%0A%09schema%20name%20in%20half%20of%20the%20statements%20in%20parley.sql&In-Reply-To=%3C201105101638.15962.stefan.seifert%40atikon.com%3E"
+       TITLE="[Parley-discuss] Patch: use search_path instead of hard coded	schema name in half of the statements in parley.sql">stefan.seifert at atikon.com
+       </A><BR>
+    <I>Tue May 10 16:38:15 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000017.html">[Parley-discuss] Patch: use search_path instead of hard coded schema name in half of the statements in parley.sql
+</A></li>
+        <LI>Next message: <A HREF="000014.html">[Parley-discuss] Patch: fix signup of new users
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tuesday 10 May 2011 01:23:35 Chisel wrote:
+&gt;<i> On Thu, May 5, 2011 at 12:45 PM, Stefan Seifert
+</I>&gt;<i> 
+</I>&gt;<i> Was the removal of the change of owner for the parley schema/namespace
+</I>&gt;<i> intentional?
+</I>&gt;<i> 
+</I>&gt;<i> i.e.
+</I>&gt;<i> 
+</I>&gt;<i> -ALTER SCHEMA parley OWNER TO parley;
+</I>&gt;<i> +SET search_path = parley;
+</I>
+Intentional yes, but I forgot to mention them. When following the installation 
+instructions, those owner changes are essentially redundant since objects 
+created have the current user as owner anyway. And if someone wants to use a 
+different user (probably his UNIX user) this redundandy makes installation 
+just harder.
+
+My goal is to integrate Parley with our Catalyst based CMS where every website 
+has it's own PostgreSQL schema. I will try to keep differences to plain 
+vanilla Parley as small as possible and maybe I'll come up with a way to just 
+support both variants with the same code. We'll see.
+
+Certainly great to see that this fine piece of software is still maintained :)
+-- 
+Stefan Seifert
+ 
+_____________________________ 
+ 
+Atikon EDV &amp; Marketing GmbH
+Kreation | Marketing | Software | Medien
+ 
+A-4060 Leonding, Kornstra&#223;e 4
+t: +43 (732) 611 266 - 37
+f: +43 (732) 611 266 - 20
+www.atikon.com
+ 
+uid: atu50491409
+fbg: Landesgericht Linz | fbn: 199780w
+ 
+Mitglied der Wirtschaftskammer O&#214; | Es ist die GewO anwendbar.
+Es gelten die AGB der Atikon Marketing und Werbung GmbH (siehe 
+www.atikon.com/agb).
+ 
+Werde Fan auf Facebook (www.atikon.com/facebook)
+Folge uns auf Twitter (www.atikon.com/twitter)
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000017.html">[Parley-discuss] Patch: use search_path instead of hard coded schema name in half of the statements in parley.sql
+</A></li>
+	<LI>Next message: <A HREF="000014.html">[Parley-discuss] Patch: fix signup of new users
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#19">[ date ]</a>
+              <a href="thread.html#19">[ thread ]</a>
+              <a href="subject.html#19">[ subject ]</a>
+              <a href="author.html#19">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/parley-discuss">More information about the Parley-discuss
+mailing list</a><br>
+</body></html>
